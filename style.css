@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f1e6;
+    color: #26382a;
+}
+
+/* CABEÇALHO */
+
+header {
+    position: relative;
+    text-align: center;
+    padding: 45px 20px 40px;
+
+    background:
+        linear-gradient(
+            rgba(231, 234, 220, 0.94),
+            rgba(231, 234, 220, 0.94)
+        ),
+        url("https://images.unsplash.com/photo-1448375240586-882707db888b");
+
+    background-size: cover;
+    background-position: center;
+
+    border-bottom: 1px solid #cdd6c5;
+}
+
+/* LOGO */
+
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 25px;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.logo strong {
+    font-size: 24px;
+    color: #285c38;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    font-size: 13px;
+    color: #65745f;
+    margin-top: 3px;
+}
+
+/* TÍTULO */
+
+.titulo h1 {
+    font-size: 32px;
+    color: #285c38;
+    margin-bottom: 8px;
+}
+
+.titulo p {
+    color: #687363;
+    font-size: 16px;
+}
+
+/* PRODUTOS */
+
+.produtos {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* CARD */
+
+.card {
+    background: #fffdf7;
+    border-radius: 14px;
+    overflow: hidden;
+
+    border: 1px solid #dfe4d5;
+
+    box-shadow: 0 5px 15px rgba(50, 70, 50, 0.08);
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(50, 70, 50, 0.15);
+}
+
+/* IMAGEM */
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* CONTEÚDO */
+
+.card-conteudo {
+    padding: 20px;
+}
+
+.card h2 {
+    color: #285c38;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    color: #687363;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 68px;
+}
+
+/* PREÇO */
+
+.preco {
+    color: #477b45;
+    font-size: 22px;
+    font-weight: bold;
+
+    margin: 15px 0;
+}
+
+/* BOTÃO */
+
+button {
+    width: 100%;
+    padding: 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #477b45;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #356238;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    .produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding-top: 100px;
+    }
+
+    .logo {
+        left: 20px;
+        top: 20px;
+    }
+
+    .titulo h1 {
+        font-size: 26px;
+    }
+
+    .produtos {
+        grid-template-columns: 1fr;
+        width: 92%;
+    }
+
+    
+}
+body {
+    position: relative;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(61, 120, 67, 0.30),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 70%,
+            rgba(61, 120, 67, 0.25),
+            transparent 30%
+        ),
+        #dfe8d7;
+
+    color: #26382a;
+}
+
+/* Folhas decorativas */
+
+body::before,
+body::after {
+    content: "🌿";
+    position: fixed;
+    font-size: 220px;
+    opacity: 0.28;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    left: -70px;
+    top: 180px;
+    transform: rotate(-25deg);
+}
+
+body::after {
+    right: -70px;
+    bottom: 80px;
+    transform: rotate(25deg);
+}
