@@ -61,20 +61,22 @@ header {
 
 
 /* ==============================
-   BOTÃO CESTA
+   BOTÃO DA CESTA
 ============================== */
 
 .botao-cesta {
+    position: relative;
+
     background: white;
     color: #1f5c35;
 
     border: none;
     border-radius: 8px;
 
-    padding: 10px 16px;
+    width: 50px;
+    height: 45px;
 
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 22px;
 
     cursor: pointer;
 
@@ -86,22 +88,25 @@ header {
 }
 
 #contador-cesta {
+    position: absolute;
+
+    top: -7px;
+    right: -7px;
+
     background: #e53935;
     color: white;
 
     border-radius: 50%;
 
-    display: inline-flex;
+    width: 22px;
+    height: 22px;
 
-    width: 23px;
-    height: 23px;
-
+    display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-left: 5px;
-
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 
@@ -112,7 +117,7 @@ header {
 .produtos {
     max-width: 1200px;
 
-    margin: 40px auto;
+    margin: 40px auto 120px;
 
     padding: 0 20px;
 
@@ -148,7 +153,6 @@ header {
 
 .card img {
     width: 100%;
-
     height: 200px;
 
     object-fit: cover;
@@ -198,14 +202,14 @@ header {
 
     justify-content: center;
 
-    gap: 15px;
+    gap: 10px;
 
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .quantidade button {
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
 
     border: none;
 
@@ -220,41 +224,90 @@ header {
     font-weight: bold;
 
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 .quantidade button:hover {
     background: #d5e4d8;
 }
 
-.quantidade span {
-    min-width: 25px;
+.quantidade input {
+    width: 60px;
+    height: 38px;
 
     text-align: center;
+
+    border: 1px solid #ccc;
+
+    border-radius: 6px;
 
     font-size: 18px;
 
     font-weight: bold;
+
+    color: #1f5c35;
+
+    outline: none;
+}
+
+.quantidade input:focus {
+    border-color: #1f5c35;
+
+    box-shadow: 0 0 0 2px rgba(31, 92, 53, 0.12);
+}
+
+
+/* Remove setinhas do input number */
+
+.quantidade input::-webkit-inner-spin-button,
+.quantidade input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+
+    margin: 0;
 }
 
 
 /* ==============================
-   BOTÃO ADICIONAR
+   BOTÃO ADICIONAR À CESTA
 ============================== */
+
+.area-adicionar {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 15px 20px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+
+    justify-content: center;
+
+    z-index: 50;
+}
 
 .botao-adicionar {
     width: 100%;
+    max-width: 500px;
 
-    padding: 12px;
+    padding: 15px;
 
     border: none;
 
-    border-radius: 7px;
+    border-radius: 8px;
 
     background: #1f5c35;
 
     color: white;
 
-    font-size: 15px;
+    font-size: 17px;
 
     font-weight: bold;
 
@@ -306,7 +359,6 @@ header {
     right: -420px;
 
     width: 400px;
-
     max-width: 100%;
 
     height: 100vh;
@@ -316,7 +368,6 @@ header {
     z-index: 100;
 
     display: flex;
-
     flex-direction: column;
 
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
@@ -382,9 +433,6 @@ header {
     margin-top: 40px;
 }
 
-
-/* ITEM INDIVIDUAL */
-
 .item-cesta {
     border-bottom: 1px solid #ddd;
 
@@ -409,12 +457,12 @@ header {
 
 .item-preco {
     font-weight: bold;
-
-    color: #222;
 }
 
 
-/* CONTROLES DA CESTA */
+/* ==============================
+   CONTROLES DA CESTA
+============================== */
 
 .controles-cesta {
     display: flex;
@@ -431,7 +479,7 @@ header {
 
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
 }
 
 .controle-quantidade button {
@@ -449,6 +497,32 @@ header {
     font-size: 18px;
 
     cursor: pointer;
+}
+
+.controle-quantidade input {
+    width: 50px;
+    height: 30px;
+
+    text-align: center;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+
+    outline: none;
+}
+
+.controle-quantidade input:focus {
+    border-color: #1f5c35;
+}
+
+.controle-quantidade input::-webkit-inner-spin-button,
+.controle-quantidade input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+
+    margin: 0;
 }
 
 .botao-remover {
@@ -540,6 +614,13 @@ header {
         text-align: center;
 
         padding: 20px;
+    }
+
+    .botao-cesta {
+        position: absolute;
+
+        top: 20px;
+        right: 20px;
     }
 
     .produtos {

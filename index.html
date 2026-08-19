@@ -24,9 +24,9 @@
             <p>Confira nossos produtos</p>
         </div>
 
-        <!-- BOTÃO DA CESTA -->
+        <!-- ÍCONE DA CESTA -->
         <button class="botao-cesta" onclick="abrirCesta()">
-            🛒 Cesta
+            🛒
             <span id="contador-cesta">0</span>
         </button>
 
@@ -52,17 +52,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('camomila', -1)">−</button>
 
-                    <span id="quantidade-camomila">1</span>
+                    <button onclick="alterarQuantidade('camomila', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('camomila', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-camomila"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('camomila')"
+                    >
+
+                    <button onclick="alterarQuantidade('camomila', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('camomila', 'Camomila 20g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -84,17 +91,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('hibisco', -1)">−</button>
 
-                    <span id="quantidade-hibisco">1</span>
+                    <button onclick="alterarQuantidade('hibisco', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('hibisco', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-hibisco"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('hibisco')"
+                    >
+
+                    <button onclick="alterarQuantidade('hibisco', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('hibisco', 'Hibisco 30g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -116,17 +130,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('espinheira', -1)">−</button>
 
-                    <span id="quantidade-espinheira">1</span>
+                    <button onclick="alterarQuantidade('espinheira', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('espinheira', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-espinheira"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('espinheira')"
+                    >
+
+                    <button onclick="alterarQuantidade('espinheira', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('espinheira', 'Espinheira-santa 30g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -148,17 +169,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('arruda', -1)">−</button>
 
-                    <span id="quantidade-arruda">1</span>
+                    <button onclick="alterarQuantidade('arruda', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('arruda', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-arruda"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('arruda')"
+                    >
+
+                    <button onclick="alterarQuantidade('arruda', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('arruda', 'Arruda 20g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -180,17 +208,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('cavalinha', -1)">−</button>
 
-                    <span id="quantidade-cavalinha">1</span>
+                    <button onclick="alterarQuantidade('cavalinha', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('cavalinha', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-cavalinha"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('cavalinha')"
+                    >
+
+                    <button onclick="alterarQuantidade('cavalinha', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('cavalinha', 'Cavalinha 20g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -212,17 +247,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('unha-gato', -1)">−</button>
 
-                    <span id="quantidade-unha-gato">1</span>
+                    <button onclick="alterarQuantidade('unha-gato', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('unha-gato', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-unha-gato"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('unha-gato')"
+                    >
+
+                    <button onclick="alterarQuantidade('unha-gato', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('unha-gato', 'Unha-de-gato 20g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -244,17 +286,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('uxi', -1)">−</button>
 
-                    <span id="quantidade-uxi">1</span>
+                    <button onclick="alterarQuantidade('uxi', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('uxi', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-uxi"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('uxi')"
+                    >
+
+                    <button onclick="alterarQuantidade('uxi', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('uxi', 'Uxi amarelo 50g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -276,17 +325,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('dente-leao', -1)">−</button>
 
-                    <span id="quantidade-dente-leao">1</span>
+                    <button onclick="alterarQuantidade('dente-leao', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('dente-leao', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-dente-leao"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('dente-leao')"
+                    >
+
+                    <button onclick="alterarQuantidade('dente-leao', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('dente-leao', 'Dente-de-leão 20g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -308,17 +364,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('ipe-roxo', -1)">−</button>
 
-                    <span id="quantidade-ipe-roxo">1</span>
+                    <button onclick="alterarQuantidade('ipe-roxo', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('ipe-roxo', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-ipe-roxo"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('ipe-roxo')"
+                    >
+
+                    <button onclick="alterarQuantidade('ipe-roxo', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('ipe-roxo', 'Ipê-roxo 50g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -340,17 +403,24 @@
                 <p class="preco">R$ 3,00</p>
 
                 <div class="quantidade">
-                    <button onclick="alterarQuantidade('carapanauba', -1)">−</button>
 
-                    <span id="quantidade-carapanauba">1</span>
+                    <button onclick="alterarQuantidade('carapanauba', -1)">
+                        −
+                    </button>
 
-                    <button onclick="alterarQuantidade('carapanauba', 1)">+</button>
+                    <input
+                        type="number"
+                        id="quantidade-carapanauba"
+                        value="0"
+                        min="0"
+                        onchange="corrigirQuantidade('carapanauba')"
+                    >
+
+                    <button onclick="alterarQuantidade('carapanauba', 1)">
+                        +
+                    </button>
+
                 </div>
-
-                <button class="botao-adicionar"
-                    onclick="adicionarCesta('carapanauba', 'Carapanaúba 50g', 3)">
-                    Adicionar à cesta
-                </button>
 
             </div>
         </div>
@@ -358,8 +428,22 @@
     </main>
 
 
-    <!-- FUNDO ESCURO DA CESTA -->
-    <div id="fundo-cesta" class="fundo-cesta" onclick="fecharCesta()"></div>
+    <!-- BOTÃO ÚNICO -->
+    <div class="area-adicionar">
+
+        <button class="botao-adicionar" onclick="adicionarSelecionados()">
+            🛒 Adicionar à cesta
+        </button>
+
+    </div>
+
+
+    <!-- FUNDO ESCURO -->
+    <div
+        id="fundo-cesta"
+        class="fundo-cesta"
+        onclick="fecharCesta()">
+    </div>
 
 
     <!-- CESTA -->
@@ -395,8 +479,12 @@
 
             </div>
 
-            <button class="botao-finalizar" onclick="finalizarPedido()">
+            <button
+                class="botao-finalizar"
+                onclick="finalizarPedido()">
+
                 Finalizar pedido
+
             </button>
 
         </div>

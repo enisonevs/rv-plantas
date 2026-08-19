@@ -1,78 +1,223 @@
 // ==========================================
-// CESTA DE COMPRAS
+// CESTA
 // ==========================================
 
 let cesta = {};
 
 
 // ==========================================
-// QUANTIDADE DOS PRODUTOS
+// QUANTIDADES SELECIONADAS NOS PRODUTOS
 // ==========================================
 
 let quantidades = {
-    camomila: 1,
-    hibisco: 1,
-    espinheira: 1,
-    arruda: 1,
-    cavalinha: 1,
-    "unha-gato": 1,
-    uxi: 1,
-    "dente-leao": 1,
-    "ipe-roxo": 1,
-    carapanauba: 1
+    camomila: 0,
+    hibisco: 0,
+    espinheira: 0,
+    arruda: 0,
+    cavalinha: 0,
+    "unha-gato": 0,
+    uxi: 0,
+    "dente-leao": 0,
+    "ipe-roxo": 0,
+    carapanauba: 0
 };
 
 
 // ==========================================
-// ALTERAR QUANTIDADE NO CARD
+// ALTERAR QUANTIDADE
 // ==========================================
 
 function alterarQuantidade(produto, valor) {
 
     quantidades[produto] += valor;
 
-    if (quantidades[produto] < 1) {
-        quantidades[produto] = 1;
+    if (quantidades[produto] < 0) {
+        quantidades[produto] = 0;
     }
 
-    document.getElementById(
-        "quantidade-" + produto
-    ).textContent = quantidades[produto];
+    atualizarCampo(produto);
 }
 
 
 // ==========================================
-// ADICIONAR PRODUTO À CESTA
+// ATUALIZAR CAMPO
 // ==========================================
 
-function adicionarCesta(id, nome, preco) {
+function atualizarCampo(produto) {
 
-    const quantidade = quantidades[id];
+    const campo = document.getElementById(
+        "quantidade-" + produto
+    );
 
-    if (cesta[id]) {
+    campo.value = quantidades[produto];
+}
 
-        cesta[id].quantidade += quantidade;
 
-    } else {
+// ==========================================
+// CORRIGIR QUANTIDADE DIGITADA
+// ==========================================
 
-        cesta[id] = {
-            nome: nome,
-            preco: preco,
-            quantidade: quantidade
-        };
+function corrigirQuantidade(produto) {
 
+    const campo = document.getElementById(
+        "quantidade-" + produto
+    );
+
+    let valor = parseInt(campo.value);
+
+
+    // Se não for número
+
+    if (isNaN(valor) || valor < 0) {
+        valor = 0;
     }
+
+
+    // Apenas números inteiros
+
+    valor = Math.floor(valor);
+
+
+    quantidades[produto] = valor;
+
+    campo.value = valor;
+}
+
+
+// ==========================================
+// ADICIONAR TODOS OS SELECIONADOS
+// ==========================================
+
+function adicionarSelecionados() {
+
+    let adicionou = false;
+
+
+    // Percorre todos os produtos
+
+    for (const id in quantidades) {
+
+        const quantidade = quantidades[id];
+
+
+        // Só adiciona se for maior que zero
+
+        if (quantidade > 0) {
+
+            adicionou = true;
+
+
+            // Informações do produto
+
+            const produtos = {
+
+                camomila: {
+                    nome: "Camomila 20g",
+                    preco: 3
+                },
+
+                hibisco: {
+                    nome: "Hibisco 30g",
+                    preco: 3
+                },
+
+                espinheira: {
+                    nome: "Espinheira-santa 30g",
+                    preco: 3
+                },
+
+                arruda: {
+                    nome: "Arruda 20g",
+                    preco: 3
+                },
+
+                cavalinha: {
+                    nome: "Cavalinha 20g",
+                    preco: 3
+                },
+
+                "unha-gato": {
+                    nome: "Unha-de-gato 20g",
+                    preco: 3
+                },
+
+                uxi: {
+                    nome: "Uxi amarelo 50g",
+                    preco: 3
+                },
+
+                "dente-leao": {
+                    nome: "Dente-de-leão 20g",
+                    preco: 3
+                },
+
+                "ipe-roxo": {
+                    nome: "Ipê-roxo 50g",
+                    preco: 3
+                },
+
+                carapanauba: {
+                    nome: "Carapanaúba 50g",
+                    preco: 3
+                }
+
+            };
+
+
+            const produto = produtos[id];
+
+
+            // Se já existe na cesta, soma
+
+            if (cesta[id]) {
+
+                cesta[id].quantidade += quantidade;
+
+            } else {
+
+                cesta[id] = {
+
+                    nome: produto.nome,
+
+                    preco: produto.preco,
+
+                    quantidade: quantidade
+
+                };
+
+            }
+
+
+            // Zera a quantidade selecionada
+
+            quantidades[id] = 0;
+
+            atualizarCampo(id);
+        }
+    }
+
+
+    // Atualiza contador e valores
 
     atualizarCesta();
 
-    abrirCesta();
 
-    // Volta a quantidade do card para 1
-    quantidades[id] = 1;
+    // IMPORTANTE:
+    // Não abre a cesta automaticamente
 
-    document.getElementById(
-        "quantidade-" + id
-    ).textContent = 1;
+    if (adicionou) {
+
+        mostrarMensagem(
+            "Produtos adicionados à cesta!"
+        );
+
+    } else {
+
+        mostrarMensagem(
+            "Selecione pelo menos um produto."
+        );
+
+    }
 }
 
 
@@ -82,16 +227,18 @@ function adicionarCesta(id, nome, preco) {
 
 function atualizarCesta() {
 
-    const container = document.getElementById("itens-cesta");
+    const container =
+        document.getElementById("itens-cesta");
 
     container.innerHTML = "";
+
 
     let total = 0;
 
     let quantidadeTotal = 0;
 
 
-    // Verifica se a cesta está vazia
+    // Cesta vazia
 
     if (Object.keys(cesta).length === 0) {
 
@@ -101,22 +248,28 @@ function atualizarCesta() {
             </p>
         `;
 
-        document.getElementById("total-cesta").textContent =
-            formatarPreco(0);
+        document.getElementById(
+            "total-cesta"
+        ).textContent = formatarPreco(0);
 
-        document.getElementById("contador-cesta").textContent = 0;
+        document.getElementById(
+            "contador-cesta"
+        ).textContent = 0;
 
         return;
     }
 
 
-    // Percorre todos os produtos
+    // Produtos
 
     for (const id in cesta) {
 
         const item = cesta[id];
 
-        const subtotal = item.preco * item.quantidade;
+
+        const subtotal =
+            item.preco * item.quantidade;
+
 
         total += subtotal;
 
@@ -149,9 +302,14 @@ function atualizarCesta() {
                             −
                         </button>
 
-                        <span>
-                            ${item.quantidade}
-                        </span>
+
+                        <input
+                            type="number"
+                            min="0"
+                            value="${item.quantidade}"
+                            onchange="editarQuantidadeCesta('${id}', this.value)"
+                        >
+
 
                         <button
                             onclick="alterarQuantidadeCesta('${id}', 1)">
@@ -177,16 +335,18 @@ function atualizarCesta() {
     }
 
 
-    // Atualiza total
+    // Total
 
-    document.getElementById("total-cesta").textContent =
-        formatarPreco(total);
+    document.getElementById(
+        "total-cesta"
+    ).textContent = formatarPreco(total);
 
 
-    // Atualiza contador
+    // Contador
 
-    document.getElementById("contador-cesta").textContent =
-        quantidadeTotal;
+    document.getElementById(
+        "contador-cesta"
+    ).textContent = quantidadeTotal;
 }
 
 
@@ -199,11 +359,33 @@ function alterarQuantidadeCesta(id, valor) {
     cesta[id].quantidade += valor;
 
 
-    // Se chegar a zero, remove
-
     if (cesta[id].quantidade <= 0) {
 
         delete cesta[id];
+
+    }
+
+
+    atualizarCesta();
+}
+
+
+// ==========================================
+// DIGITAR QUANTIDADE NA CESTA
+// ==========================================
+
+function editarQuantidadeCesta(id, valor) {
+
+    valor = parseInt(valor);
+
+
+    if (isNaN(valor) || valor <= 0) {
+
+        delete cesta[id];
+
+    } else {
+
+        cesta[id].quantidade = Math.floor(valor);
 
     }
 
@@ -230,10 +412,12 @@ function removerProduto(id) {
 
 function abrirCesta() {
 
-    document.getElementById("cesta")
+    document
+        .getElementById("cesta")
         .classList.add("aberto");
 
-    document.getElementById("fundo-cesta")
+    document
+        .getElementById("fundo-cesta")
         .classList.add("aberto");
 }
 
@@ -244,10 +428,12 @@ function abrirCesta() {
 
 function fecharCesta() {
 
-    document.getElementById("cesta")
+    document
+        .getElementById("cesta")
         .classList.remove("aberto");
 
-    document.getElementById("fundo-cesta")
+    document
+        .getElementById("fundo-cesta")
         .classList.remove("aberto");
 }
 
@@ -258,11 +444,52 @@ function fecharCesta() {
 
 function formatarPreco(valor) {
 
-    return valor.toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    });
+    return valor.toLocaleString(
+        "pt-BR",
+        {
+            style: "currency",
+            currency: "BRL"
+        }
+    );
 
+}
+
+
+// ==========================================
+// MENSAGEM TEMPORÁRIA
+// ==========================================
+
+function mostrarMensagem(texto) {
+
+    const mensagem = document.createElement("div");
+
+    mensagem.textContent = texto;
+
+    mensagem.style.position = "fixed";
+    mensagem.style.bottom = "85px";
+    mensagem.style.left = "50%";
+    mensagem.style.transform = "translateX(-50%)";
+
+    mensagem.style.background = "#1f5c35";
+    mensagem.style.color = "white";
+
+    mensagem.style.padding = "12px 20px";
+
+    mensagem.style.borderRadius = "8px";
+
+    mensagem.style.zIndex = "200";
+
+    mensagem.style.boxShadow =
+        "0 4px 15px rgba(0,0,0,0.2)";
+
+    document.body.appendChild(mensagem);
+
+
+    setTimeout(() => {
+
+        mensagem.remove();
+
+    }, 2000);
 }
 
 
@@ -280,7 +507,9 @@ function finalizarPedido() {
     }
 
 
-    let mensagem = "Olá! Gostaria de fazer um pedido:%0A%0A";
+    let mensagem =
+        "Olá! Gostaria de fazer um pedido:%0A%0A";
+
 
     let total = 0;
 
@@ -289,8 +518,10 @@ function finalizarPedido() {
 
         const item = cesta[id];
 
+
         const subtotal =
             item.preco * item.quantidade;
+
 
         total += subtotal;
 
@@ -300,14 +531,13 @@ function finalizarPedido() {
     }
 
 
-    mensagem += `%0A*Total: ${formatarPreco(total)}*`;
+    mensagem +=
+        `%0A*Total: ${formatarPreco(total)}*`;
 
 
-    // ======================================
-    // COLOQUE AQUI O NÚMERO DO WHATSAPP
-    // ======================================
+    // COLOQUE O WHATSAPP DA RV PLANTAS AQUI
 
-    const telefone = "55929285528649";
+    const telefone = "5592999999999";
 
 
     const url =
@@ -316,3 +546,10 @@ function finalizarPedido() {
 
     window.open(url, "_blank");
 }
+
+
+// ==========================================
+// INICIALIZAÇÃO
+// ==========================================
+
+atualizarCesta();
