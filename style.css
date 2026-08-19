@@ -1,3 +1,7 @@
+/* ==============================
+   CONFIGURAÇÕES GERAIS
+============================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,163 +9,519 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4f1e6;
-    color: #26382a;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f7f4;
+    color: #222;
 }
 
-/* CABEÇALHO */
+
+/* ==============================
+   CABEÇALHO
+============================== */
 
 header {
-    position: relative;
-    text-align: center;
-    padding: 45px 20px 40px;
+    background: #1f5c35;
+    color: white;
 
-    background:
-        linear-gradient(
-            rgba(231, 234, 220, 0.94),
-            rgba(231, 234, 220, 0.94)
-        ),
-        url("https://images.unsplash.com/photo-1448375240586-882707db888b");
-
-    background-size: cover;
-    background-position: center;
-
-    border-bottom: 1px solid #cdd6c5;
-}
-
-/* LOGO */
-
-.logo {
-    position: absolute;
-    left: 30px;
-    top: 25px;
+    padding: 20px 40px;
 
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
     flex-direction: column;
-    text-align: left;
 }
 
 .logo strong {
     font-size: 24px;
-    color: #285c38;
-    letter-spacing: 1px;
 }
 
 .logo span {
     font-size: 13px;
-    color: #65745f;
-    margin-top: 3px;
+    opacity: 0.9;
 }
 
-/* TÍTULO */
+.titulo {
+    text-align: center;
+}
 
 .titulo h1 {
-    font-size: 32px;
-    color: #285c38;
-    margin-bottom: 8px;
+    font-size: 28px;
 }
 
 .titulo p {
-    color: #687363;
-    font-size: 16px;
+    margin-top: 5px;
+    opacity: 0.9;
 }
 
-/* PRODUTOS */
+
+/* ==============================
+   BOTÃO CESTA
+============================== */
+
+.botao-cesta {
+    background: white;
+    color: #1f5c35;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 16px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.botao-cesta:hover {
+    transform: scale(1.05);
+}
+
+#contador-cesta {
+    background: #e53935;
+    color: white;
+
+    border-radius: 50%;
+
+    display: inline-flex;
+
+    width: 23px;
+    height: 23px;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 5px;
+
+    font-size: 13px;
+}
+
+
+/* ==============================
+   PRODUTOS
+============================== */
 
 .produtos {
-    width: 90%;
     max-width: 1200px;
+
     margin: 40px auto;
 
+    padding: 0 20px;
+
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
-/* CARD */
+
+/* ==============================
+   CARD
+============================== */
 
 .card {
-    background: #fffdf7;
-    border-radius: 14px;
+    background: white;
+
+    border-radius: 12px;
+
     overflow: hidden;
 
-    border: 1px solid #dfe4d5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 
-    box-shadow: 0 5px 15px rgba(50, 70, 50, 0.08);
-
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: 0.2s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
 
-    box-shadow: 0 10px 25px rgba(50, 70, 50, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
-
-/* IMAGEM */
 
 .card img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-}
 
-/* CONTEÚDO */
+    height: 200px;
+
+    object-fit: cover;
+}
 
 .card-conteudo {
     padding: 20px;
 }
 
 .card h2 {
-    color: #285c38;
-    font-size: 21px;
+    color: #1f5c35;
+
     margin-bottom: 10px;
+
+    font-size: 20px;
 }
 
 .descricao {
-    color: #687363;
+    color: #666;
+
     font-size: 14px;
-    line-height: 1.6;
-    min-height: 68px;
+
+    line-height: 1.5;
+
+    min-height: 63px;
 }
 
-/* PREÇO */
-
 .preco {
-    color: #477b45;
     font-size: 22px;
+
     font-weight: bold;
+
+    color: #1f5c35;
 
     margin: 15px 0;
 }
 
-/* BOTÃO */
 
-button {
+/* ==============================
+   QUANTIDADE
+============================== */
+
+.quantidade {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+}
+
+.quantidade button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #e8f0e9;
+
+    color: #1f5c35;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.quantidade button:hover {
+    background: #d5e4d8;
+}
+
+.quantidade span {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   BOTÃO ADICIONAR
+============================== */
+
+.botao-adicionar {
     width: 100%;
+
     padding: 12px;
 
     border: none;
-    border-radius: 8px;
 
-    background: #477b45;
+    border-radius: 7px;
+
+    background: #1f5c35;
+
     color: white;
 
     font-size: 15px;
+
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: background 0.2s ease;
+    transition: 0.2s;
 }
 
-button:hover {
-    background: #356238;
+.botao-adicionar:hover {
+    background: #164627;
 }
 
-/* RESPONSIVIDADE */
+
+/* ==============================
+   FUNDO DA CESTA
+============================== */
+
+.fundo-cesta {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 90;
+}
+
+.fundo-cesta.aberto {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* ==============================
+   CESTA
+============================== */
+
+.cesta {
+    position: fixed;
+
+    top: 0;
+    right: -420px;
+
+    width: 400px;
+
+    max-width: 100%;
+
+    height: 100vh;
+
+    background: white;
+
+    z-index: 100;
+
+    display: flex;
+
+    flex-direction: column;
+
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+}
+
+.cesta.aberto {
+    right: 0;
+}
+
+
+/* ==============================
+   CABEÇALHO DA CESTA
+============================== */
+
+.cesta-cabecalho {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 20px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.cesta-cabecalho h2 {
+    color: #1f5c35;
+}
+
+.cesta-cabecalho button {
+    border: none;
+
+    background: transparent;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    color: #555;
+}
+
+
+/* ==============================
+   ITENS DA CESTA
+============================== */
+
+.itens-cesta {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 20px;
+}
+
+.cesta-vazia {
+    text-align: center;
+
+    color: #777;
+
+    margin-top: 40px;
+}
+
+
+/* ITEM INDIVIDUAL */
+
+.item-cesta {
+    border-bottom: 1px solid #ddd;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 15px;
+}
+
+.item-cesta-topo {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.item-cesta h3 {
+    font-size: 16px;
+
+    color: #1f5c35;
+}
+
+.item-preco {
+    font-weight: bold;
+
+    color: #222;
+}
+
+
+/* CONTROLES DA CESTA */
+
+.controles-cesta {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 10px;
+}
+
+.controle-quantidade {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.controle-quantidade button {
+    width: 28px;
+    height: 28px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: #e8f0e9;
+
+    color: #1f5c35;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.botao-remover {
+    border: none;
+
+    background: transparent;
+
+    color: #d32f2f;
+
+    cursor: pointer;
+
+    font-size: 13px;
+}
+
+
+/* ==============================
+   RODAPÉ DA CESTA
+============================== */
+
+.cesta-rodape {
+    padding: 20px;
+
+    border-top: 1px solid #ddd;
+
+    background: #fafafa;
+}
+
+.total {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+}
+
+.total strong {
+    color: #1f5c35;
+
+    font-size: 23px;
+}
+
+.botao-finalizar {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #25d366;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.botao-finalizar:hover {
+    background: #1ebe5d;
+}
+
+
+/* ==============================
+   RESPONSIVIDADE
+============================== */
 
 @media (max-width: 900px) {
 
@@ -171,68 +531,25 @@ button:hover {
 
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 650px) {
 
     header {
-        padding-top: 100px;
-    }
+        flex-direction: column;
 
-    .logo {
-        left: 20px;
-        top: 20px;
-    }
+        text-align: center;
 
-    .titulo h1 {
-        font-size: 26px;
+        padding: 20px;
     }
 
     .produtos {
         grid-template-columns: 1fr;
-        width: 92%;
+
+        margin-top: 25px;
     }
 
-    
-}
-body {
-    position: relative;
-    overflow-x: hidden;
+    .cesta {
+        width: 100%;
+    }
 
-    background:
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(61, 120, 67, 0.30),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 70%,
-            rgba(61, 120, 67, 0.25),
-            transparent 30%
-        ),
-        #dfe8d7;
-
-    color: #26382a;
-}
-
-/* Folhas decorativas */
-
-body::before,
-body::after {
-    content: "🌿";
-    position: fixed;
-    font-size: 220px;
-    opacity: 0.28;
-    z-index: -1;
-    pointer-events: none;
-}
-
-body::before {
-    left: -70px;
-    top: 180px;
-    transform: rotate(-25deg);
-}
-
-body::after {
-    right: -70px;
-    bottom: 80px;
-    transform: rotate(25deg);
 }

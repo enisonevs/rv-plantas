@@ -4,32 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>RV Plantas Catálogo</title>
+    <title>RV Plantas - Catálogo</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- CABEÇALHO -->
     <header>
-    <div class="logo">
-        <strong>RV - PLANTAS</strong>
-        <span>Plantas da Amazônia</span>
-    </div>
 
-    <div class="titulo">
-        <h1>Meu Catálogo</h1>
-        <p>Confira nossos produtos</p>
-    </div>
-</header>
+        <div class="logo">
+            <strong>RV - PLANTAS</strong>
+            <span>Plantas da Amazônia</span>
+        </div>
 
+        <div class="titulo">
+            <h1>Meu Catálogo</h1>
+            <p>Confira nossos produtos</p>
+        </div>
+
+        <!-- BOTÃO DA CESTA -->
+        <button class="botao-cesta" onclick="abrirCesta()">
+            🛒 Cesta
+            <span id="contador-cesta">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- PRODUTOS -->
     <main class="produtos">
 
-        <!-- Camomila -->
+        <!-- CAMOMILA -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Camomila 20g">
 
             <div class="card-conteudo">
+
                 <h2>Camomila 20g</h2>
 
                 <p class="descricao">
@@ -38,16 +51,30 @@
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('camomila', -1)">−</button>
+
+                    <span id="quantidade-camomila">1</span>
+
+                    <button onclick="alterarQuantidade('camomila', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('camomila', 'Camomila 20g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Hibisco -->
+        <!-- HIBISCO -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Hibisco 30g">
 
             <div class="card-conteudo">
+
                 <h2>Hibisco 30g</h2>
 
                 <p class="descricao">
@@ -56,155 +83,328 @@
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('hibisco', -1)">−</button>
+
+                    <span id="quantidade-hibisco">1</span>
+
+                    <button onclick="alterarQuantidade('hibisco', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('hibisco', 'Hibisco 30g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Espinheira-santa -->
+        <!-- ESPINHEIRA-SANTA -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Espinheira-santa 30g">
 
             <div class="card-conteudo">
+
                 <h2>Espinheira-santa 30g</h2>
 
                 <p class="descricao">
-                    Alivia problemas estomacais, como azia, gastrite e dores no estômago.
+                    Tradicionalmente utilizada para desconfortos digestivos.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('espinheira', -1)">−</button>
+
+                    <span id="quantidade-espinheira">1</span>
+
+                    <button onclick="alterarQuantidade('espinheira', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('espinheira', 'Espinheira-santa 30g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Arruda -->
+        <!-- ARRUDA -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Arruda 20g">
 
             <div class="card-conteudo">
+
                 <h2>Arruda 20g</h2>
 
                 <p class="descricao">
-                    Propriedades analgésicas e anti-inflamatórias (uso tradicional para dores).
+                    Planta tradicionalmente utilizada em preparações populares.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('arruda', -1)">−</button>
+
+                    <span id="quantidade-arruda">1</span>
+
+                    <button onclick="alterarQuantidade('arruda', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('arruda', 'Arruda 20g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Cavalinha -->
+        <!-- CAVALINHA -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Cavalinha 20g">
 
             <div class="card-conteudo">
+
                 <h2>Cavalinha 20g</h2>
 
                 <p class="descricao">
-                    Combate a retenção de líquidos e fortalece unhas e cabelos.
+                    Tradicionalmente utilizada em preparações à base de plantas.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('cavalinha', -1)">−</button>
+
+                    <span id="quantidade-cavalinha">1</span>
+
+                    <button onclick="alterarQuantidade('cavalinha', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('cavalinha', 'Cavalinha 20g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Unha-de-gato -->
+        <!-- UNHA-DE-GATO -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Unha-de-gato 20g">
 
             <div class="card-conteudo">
+
                 <h2>Unha-de-gato 20g</h2>
 
                 <p class="descricao">
-                    Fortalece o sistema imunológico e possui ação anti-inflamatória potente.
+                    Planta tradicionalmente utilizada em preparações populares.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('unha-gato', -1)">−</button>
+
+                    <span id="quantidade-unha-gato">1</span>
+
+                    <button onclick="alterarQuantidade('unha-gato', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('unha-gato', 'Unha-de-gato 20g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Uxi amarelo -->
+        <!-- UXI AMARELO -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Uxi amarelo 50g">
 
             <div class="card-conteudo">
+
                 <h2>Uxi amarelo 50g</h2>
 
                 <p class="descricao">
-                    Auxilia na saúde do sistema reprodutor feminino e combate inflamações.
+                    Planta tradicionalmente utilizada em preparações populares.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('uxi', -1)">−</button>
+
+                    <span id="quantidade-uxi">1</span>
+
+                    <button onclick="alterarQuantidade('uxi', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('uxi', 'Uxi amarelo 50g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Dente-de-leão -->
+        <!-- DENTE-DE-LEÃO -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Dente-de-leão 20g">
 
             <div class="card-conteudo">
+
                 <h2>Dente-de-leão 20g</h2>
 
                 <p class="descricao">
-                    Estimula a digestão, auxilia na saúde do fígado e tem efeito diurético.
+                    Tradicionalmente utilizado em preparações à base de plantas.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('dente-leao', -1)">−</button>
+
+                    <span id="quantidade-dente-leao">1</span>
+
+                    <button onclick="alterarQuantidade('dente-leao', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('dente-leao', 'Dente-de-leão 20g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Ipê-roxo -->
+        <!-- IPÊ-ROXO -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Ipê-roxo 50g">
 
             <div class="card-conteudo">
+
                 <h2>Ipê-roxo 50g</h2>
 
                 <p class="descricao">
-                    Ação cicatrizante, antifúngica e fortalecedora das defesas do organismo.
+                    Planta tradicionalmente utilizada em preparações populares.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('ipe-roxo', -1)">−</button>
+
+                    <span id="quantidade-ipe-roxo">1</span>
+
+                    <button onclick="alterarQuantidade('ipe-roxo', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('ipe-roxo', 'Ipê-roxo 50g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
 
-        <!-- Carapanaúba -->
+        <!-- CARAPANAÚBA -->
         <div class="card">
+
             <img src="https://via.placeholder.com/300x200" alt="Carapanaúba 50g">
 
             <div class="card-conteudo">
+
                 <h2>Carapanaúba 50g</h2>
 
                 <p class="descricao">
-                    Conhecida por suas propriedades anti-inflamatórias, purificantes e no combate a infecções.
+                    Planta tradicionalmente utilizada em preparações populares.
                 </p>
 
                 <p class="preco">R$ 3,00</p>
 
-                <button>Ver produto</button>
+                <div class="quantidade">
+                    <button onclick="alterarQuantidade('carapanauba', -1)">−</button>
+
+                    <span id="quantidade-carapanauba">1</span>
+
+                    <button onclick="alterarQuantidade('carapanauba', 1)">+</button>
+                </div>
+
+                <button class="botao-adicionar"
+                    onclick="adicionarCesta('carapanauba', 'Carapanaúba 50g', 3)">
+                    Adicionar à cesta
+                </button>
+
             </div>
         </div>
 
     </main>
+
+
+    <!-- FUNDO ESCURO DA CESTA -->
+    <div id="fundo-cesta" class="fundo-cesta" onclick="fecharCesta()"></div>
+
+
+    <!-- CESTA -->
+    <aside id="cesta" class="cesta">
+
+        <div class="cesta-cabecalho">
+
+            <h2>🛒 Minha cesta</h2>
+
+            <button onclick="fecharCesta()">✕</button>
+
+        </div>
+
+
+        <div id="itens-cesta" class="itens-cesta">
+
+            <p class="cesta-vazia">
+                Sua cesta está vazia.
+            </p>
+
+        </div>
+
+
+        <div class="cesta-rodape">
+
+            <div class="total">
+
+                <span>Total:</span>
+
+                <strong id="total-cesta">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+            <button class="botao-finalizar" onclick="finalizarPedido()">
+                Finalizar pedido
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>
