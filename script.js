@@ -537,7 +537,7 @@ function finalizarPedido() {
 
     // COLOQUE O WHATSAPP DA RV PLANTAS AQUI
 
-    const telefone = "5592999999999";
+    const telefone = "559291525084";
 
 
     const url =
