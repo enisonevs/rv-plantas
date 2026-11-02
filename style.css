@@ -632,5 +632,22 @@ header {
     .cesta {
         width: 100%;
     }
+/* Cole no FINAL do seu style.css */
+.campo-nome {
+  display: block;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 12px;
+}
 
+.campo-nome input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  font-size: 16px; /* 16px evita zoom automático no iPhone */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
 }
